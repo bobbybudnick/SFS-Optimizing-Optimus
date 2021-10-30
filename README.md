@@ -180,10 +180,12 @@ this should be as good as it is going to get for now
 **xinitrc/xsessionrc**-set xorg run time options-xinitrc with startx or xessionrc with de  
 **xorg.conf** - setup primarygpu acceleration method - lets xorg redirect to nvidia  
 **10-nvidia-drm-outputclass.conf** - alternate options method for xorg redirect to nvidia  
+**modelines** - troubleshooting techniques and modelines for tricky displays
+
+**Releases**  
 **kernel headers common** - needed to compile nvidia driver  
 **kernel headers amd64** - needed to compile nvidia driver  
-**kernel image** - earlier kernel to allow for switching output without errors  
-**modelines** - troubleshooting techniques and modelines for tricky displays
+**kernel image** - earlier kernel to allow for switching output without errors
 
 **External**  
 HDMI capture example - https://github.com/bobbybudnick/SFS-AMAZONVIDEO-TO-LINUX
