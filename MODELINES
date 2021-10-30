@@ -1,0 +1,37 @@
+modeline troubleshooting document
+-----
+Get the EDID information.
+sudo apt install read-edid
+sudo get-edid | parse-edid
+
+Choose the preferred mode, in this case "Mode 0".
+Modeline    "Mode 0" 297.00 3840 4016 4104 4400 2160 2168 2178 2250 +hsync +vsync 
+
+Create the new mode.
+xrandr --newmode "3840x2160" 297.00 3840 4016 4104 4400 2160 2168 2178 2250 +hsync +
+
+Use the name of the output.
+xrandr --addmode HDMI-2 3840x2160
+-----
+cvt --reduced 3840 2160 30
+-----
+xrandr --newmode "3840x2160x30.00"  340.000000  3840 4080 4496 5152  2160 2164 2168 2200  -HSync +VSync
+xrandr --addmode HDMI-1 "3840x2160x30.00"
+xrandr --output HDMI-1 --mode "3840x2160x30.00"
+
+umc 3840 2160 30 --rbt
+-----
+xrandr --newmode "3840x2160_24.00"  266.75  3840 4056 4456 5072  2160 2163 2168 2192 -hsync +vsync
+xrandr --addmode HDMI-1 3840x2160_24.00
+xrandr --output HDMI-1 --mode 3840x2160_24.00
+
+alternate:
+Modeline "3840x2160U" 297.0 3840 4016 4104 4400 2160 2168 2178 2250 +hsync +vsync
+-----
+# 3840x2160 @ 24.000 Hz Reduced Blank (CVT) field rate 24.000 Hz; hsync: 52.656 kHz; pclk: 210.62 MHz
+Modeline "3840x2160" 210.62  3840 3888 3920 4000  2160 2183 2188 2194 +hsync -vsync
+# # 3840x2160 @ 25.000 Hz Reduced Blank (CVT) field rate 25.000 Hz; hsync: 54.850 kHz; pclk: 219.40 MHz
+Modeline "3840x2160" 219.40  3840 3888 3920 4000  2160 2183 2188 2194 +hsync -vsync
+# # 3840x2160 @ 23.980 Hz Reduced Blank (CVT) field rate 23.980 Hz; hsync: 52.612 kHz; pclk: 210.45 MHz
+Modeline "3840x2160" 210.45  3840 3888 3920 4000  2160 2183 2188 2194 +hsync -vsync
+
