@@ -3,7 +3,7 @@ A method for getting the best 4k performance for Nvidia Optimus hardware
 
 # Intro
 
-I really wanted to get smooth 4k playback on my Nvidia Optimus laptop this time without having to go back to 1080p output.
+I wanted to get smooth 4k playback on my Optimus laptop this time without having to go back to 1080p output.
 
 **Configuration**  
 Hisense 4k TV  
