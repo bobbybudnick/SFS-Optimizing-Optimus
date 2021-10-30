@@ -172,3 +172,19 @@ performance problems have been fixed
 however a 4k 60 fps screen and computer combo would solve a lot of tearing problems  
 this should be as good as it is going to get for now
 
+# File Legend
+
+**Use xsessionrc or xinitrc not both / use xorg.conf or xorg options file not both**  
+
+**Local List**  
+**xinitrc/xsessionrc**-set xorg run time options-xinitrc with startx or xessionrc with de  
+**xorg.conf** - setup primarygpu acceleration method - lets xorg redirect to nvidia  
+**10-nvidia-drm-outputclass.conf** - alternate options method for xorg redirect to nvidia  
+**kernel headers common** - needed to compile nvidia driver  
+**kernel headers amd64** - needed to compile nvidia driver  
+**kernel image** - earlier kernel to allow for switching output without errors  
+**modelines** - troubleshooting techniques and modelines for tricky displays
+
+**External**  
+HDMI capture example - https://github.com/bobbybudnick/SFS-AMAZONVIDEO-TO-LINUX
+
