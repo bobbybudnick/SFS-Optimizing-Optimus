@@ -93,7 +93,10 @@ dri prime 0 and 1 glx vendors are intel and intel with intel - no crash but 1 an
 
 **Reoptimized old direct use method**  
 xorg.conf did not change  
-however xinitrc back in use and has added dpi option and changed kde start file name  
+xinitrc back in use  
+xinitrc added dpi option  
+xinitrc has changed kde start file name  
+xinitrc has fixed modeline  
 kernel version 4.19.0-20-amd64  
 nvidia driver version 418.211.00-1  
 works well
