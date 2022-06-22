@@ -3,68 +3,56 @@ A method for getting the best 4k performance for Nvidia Optimus hardware
 
 # Newer Information
 
-Install some needed media pc packages
------
+**Install some needed media pc packages**
 kde-plasma-desktop xserver-xorg alsa-utils linux-cpupower falkon xscreensaver chromium
 mpv ark ps-misc xinit
 
-Remove some crap
------
+**Remove some crap**
 kscreen pulseaudio
 
-Setup asoundrc for hdmi sound output
------
+**Setup asoundrc for hdmi sound output**
 same as used for the mobile internet devices
 
-Setup a xsessionrc for basic testing instead of an xinitrc
------
+**Setup a xsessionrc for basic testing instead of an xinitrc**
 use default modesetting driver on kernel 4.19.0-20-amd64
 the previous custom modeline was corrupted - vsync added to end
 
-Performance modifications
------
+**Performance modifications**
 chromium tweaks
 use cpupower to set cpu governor to performance
 disable exploit mititgations
 
-Capture testing video
------
+**Capture testing video**
 hdmi capture at 1080p from fire stick
 previous setup ran this at full speed with some tearing
 
-Local testing video
------
+**Local testing video**
 big buck bunny 4k 60 fps normal
 previous setup ran this at full speed in mpv and vlc was slower with less options
 
-Stream testing video
------
+**Stream testing video**
 4k incredible beauty video on youtube
 previous setup barely ran at full speed at 4k and other videos would sometimes be slower
 
-Chromium tweaks 
------
+**Chromium tweaks**
 override software rendering list
 gpu rasterization   
 hardware accelerated video decode
 zero copy rasterizer
 vulkan
 
-Governor disparity
------
+**Governor disparity**
 there are only 2 governors available that of powersave which is default and performance
 powersave always runs all 4 cores at 500 mhz
 performance always runs all cores at 3 ghz
 the difference is night and day
 
-Nvidia-persistence issue
------
+**Nvidia-persistence issue**
 nvidia-persistence failed to initialize is a recurring problem
 this is a red herring
 everything works fine despite the error
 
-Basic method
------
+**Basic method**
 pure modeset 4xkernel capture - tearing and input latency seem better
 pure modeset 4xkernel local - seems to play ok but tearing is fairly noticeable
 pure modeset 4xkernel stream - falkon terrible / chromium slower than before
@@ -74,23 +62,19 @@ pure intel 4xkernel stream - same horrible speed with falkon and chromium
 pure intel on 5xkernel stream - slow
 pure modesetting on 5xkernel stream - slow
 
-Nvidia-xrun method
------
+**Nvidia-xrun method**
 unacceptable because it is too awkward to run a new xserver instance for every program
 
-Bumblebee method
------
+**Bumblebee method**
 has an nvidia or nouveau method but is complicated and unnecessary compared to original
 
-DRI2 and 3 with nouveau on 4.19.0-20-amd64 method
------
+**DRI2 and 3 with nouveau on 4.19.0-20-amd64 method**
 listproviders shows both providers as modesetting with modesetting
 listproviders shows only one provider as intel with intel
 dri prime 0 and 1 glx vendors are intel and nvidia with modesetting - prime 1 crashes
 dri prime 0 and 1 glx vendors are intel and intel with intel - no crash but 1 and 0 slow
 
-Nvidia prime render offload method
------
+**Nvidia prime render offload method**
 __NV_PRIME_RENDER_OFFLOAD=1 
 __VK_LAYER_NV_optimus=NVIDIA_only
 __GLX_VENDOR_LIBRARY_NAME=nvidia
@@ -101,15 +85,13 @@ basic - kernel5x - working but not quite fast enough
 390xx - kernel4x - xlib extension glx missing on display
 basic - kernel4x - working but not quite fast enough
 
-DRI2 and 3 with nouveau on 5.10.0-0.bpo.12-amd64 method
------
+**DRI2 and 3 with nouveau on 5.10.0-0.bpo.12-amd64 method**
 listproviders shows both providers as modesetting with modesetting
 listproviders shows only one provider as intel with intel
 with dri prime 1 - gets further than earlier kernel before crashing
 dri prime 0 and 1 glx vendors are intel and intel with intel - no crash but 1 and 0 slow
 
-Reoptimized old direct use method
------
+**Reoptimized old direct use method**
 xorg.conf did not change
 however xinitrc back in use and has added dpi option and changed kde start file name
 kernel version 4.19.0-20-amd64
